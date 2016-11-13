@@ -71,7 +71,7 @@ function getStringFromTemplate(firstName, lastName) {
 function extractNameFromTemplate(value) {
     value = value.split(',');
     value[1] = value[1].split('!');
-    console.log(value[1][0]);
+    return value[1][0];
 }
 
 
