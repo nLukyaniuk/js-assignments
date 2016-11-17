@@ -74,7 +74,9 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-    return Math.sqrt(Math.pow(Math.abs(x2)+Math.abs(x1),2) + Math.pow(Math.abs(y2)+Math.abs(y1),2));
+    var firstSide = Math.abs(x2)+Math.abs(x1);
+    var secondSide = Math.abs(y2)+Math.abs(y1);
+    return Math.sqrt(Math.pow(firstSide, 2) + Math.pow(secondSide, 2));
 }
 
 /**
@@ -90,7 +92,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-    return (0 - b)/a;
+    return (-1 * b)/a;
 }
 
 
@@ -128,6 +130,9 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
+    if (!Number.isInteger(value)) {
+        value = parseInt(value);
+    }
     return Math.abs(value % 10);
 }
 
@@ -249,7 +254,7 @@ function isPrime(n) {
 function toNumber(value, def) {
     value = Number(value);
     if (isNaN(value)) {
-        return def;
+        value = def;
     }
     return value;
 }

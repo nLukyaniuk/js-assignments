@@ -130,8 +130,9 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-    
-    return str.slice(0, str.indexOf(value)) + str.slice(str.indexOf(value) + value.length, str.length);
+    var firstLetterIndex = str.indexOf(value);
+    var lastLetterIndex = str.indexOf(value) + value.length;
+    return str.slice(0, firstLetterIndex) + str.slice(lastLetterIndex, str.length);
 }
 
 /**
@@ -146,7 +147,10 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-    return str.substring(1, str.length - 1);
+    var pattern = /\b\<[a-z]+\>\b/;
+    if (str.search(pattern)) {
+        return str.substring(1, str.length - 1);
+    }
 }
 
 
