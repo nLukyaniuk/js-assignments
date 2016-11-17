@@ -55,6 +55,7 @@ function getCicleCircumference(radius) {
  */
 function getAverage(value1, value2) {
     throw new Error('Not implemented');
+    
 }
 
 /**
@@ -127,7 +128,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    throw new Error('Not implemented');
+    return Math.abs(value % 10);
 }
 
 
@@ -246,7 +247,11 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    throw new Error('Not implemented');
+    value = Number(value);
+    if (isNaN(value)) {
+        return def;
+    }
+    return value;
 }
 
 module.exports = {
