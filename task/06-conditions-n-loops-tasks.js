@@ -30,7 +30,20 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    var result;
+    if (num % 3 == 0 && num % 5 == 0) {
+        result = "FizzBuzz";
+    }
+    else if (num % 3 == 0) {
+        result = "Fizz";
+    }
+    else if (num % 5 == 0) {
+        result = "Buzz";
+    }
+    else {
+        result = num;
+    }
+    return result;
 }
 
 
@@ -63,7 +76,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    var result = 0;
+    for (var i = n1; i <= n2; i++) {
+        result += i;
+    }
+    return result;
 }
 
 
@@ -82,7 +99,11 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    var result = false;
+    if ((a < b + c) && (b < a + c) && (c < b + a)) {
+        result = true;
+    }
+    return result;
 }
 
 
@@ -192,7 +213,23 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    var result = '';
+    var startIncludes = '(';
+    var endIncludes = ')';
+    if (isEndIncluded) {
+        endIncludes = ']';
+    }
+    if (isStartIncluded) {
+        startIncludes = '[';
+    }
+    result += startIncludes;
+    if (a < b) {
+        result += a + ', ' + b + endIncludes;
+    }
+    else {
+        result += b + ', ' + a + endIncludes;
+    }
+    return result;
 }
 
 
@@ -209,7 +246,11 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    var reversedStr = '';
+    for (var i = (str.length - 1); i > -1; i--) {
+        reversedStr += str[i];
+    }
+    return reversedStr;
 }
 
 
@@ -226,7 +267,12 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    var reversedInt = 0;
+    for (; num; num = Math.floor(num / 10)) {
+        reversedInt *= 10;
+        reversedInt += num % 10;
+    }
+    return reversedInt;
 }
 
 
@@ -251,8 +297,26 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
-}
+    var arr = ccn.toString().split("").map(function(value) {
+        return Number(value);
+    });
+    var result = false;
+    var counter = arr.length;
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++, counter--) {
+        if (counter % 2 === 0) {
+        arr[i] *= 2;
+            if (arr[i] > 9) {
+                arr[i] -= 9;
+            }
+        }
+        sum += arr[i];
+    }
+    if (sum % 10 === 0) {
+        result = true;
+    }
+    return result;
+    }
 
 
 /**
