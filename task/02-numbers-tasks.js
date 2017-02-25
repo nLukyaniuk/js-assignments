@@ -74,8 +74,8 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-    var firstSide = Math.abs(x2)+Math.abs(x1);
-    var secondSide = Math.abs(y2)+Math.abs(y1);
+    var firstSide = Math.abs(x2) + Math.abs(x1);
+    var secondSide = Math.abs(y2) + Math.abs(y1);
     return Math.sqrt(Math.pow(firstSide, 2) + Math.pow(secondSide, 2));
 }
 

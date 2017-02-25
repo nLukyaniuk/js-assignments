@@ -59,7 +59,11 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    var factorial = 1;
+    for (; n != 0; n--) {
+        factorial *= n;
+    }
+    return factorial;
 }
 
 
@@ -187,7 +191,17 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    var firstSingleChar = null;
+    var newStr = '';
+    for (var i = 0; i < str.length; i++) {
+        var index = i + 1;
+        newStr = str.slice(0, i) + str.slice(index);
+        if (!(newStr.includes(str[i]))) {
+            firstSingleChar = str[i];
+            break;
+        }
+    }
+    return firstSingleChar;
 }
 
 
@@ -334,9 +348,15 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    do {
+        var sum = 0;
+        for (; num; num = Math.floor(num / 10)) {
+            sum += num % 10;
+        }
+        num = sum;
+    } while(sum > 9)
+    return sum;
 }
-
 
 /**
  * Returns true if the specified string has the balanced brackets and false otherwise.
@@ -420,7 +440,8 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    var naryString = num.toString(n);
+    return naryString;
 }
 
 

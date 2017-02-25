@@ -131,7 +131,7 @@ function repeatString(value, count) {
  */
 function removeFirstOccurrences(str, value) {
     var firstLetterIndex = str.indexOf(value);
-    var lastLetterIndex = str.indexOf(value) + value.length;
+    var lastLetterIndex = firstLetterIndex + value.length;
     return str.slice(0, firstLetterIndex) + str.slice(lastLetterIndex, str.length);
 }
 
