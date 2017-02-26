@@ -531,7 +531,7 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-    var array = new Array();
+    var array = [];
     arr = arr.filter(function(value, index) {
         if (!(array.includes(value))) {
                 array.push(value);
